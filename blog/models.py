@@ -15,5 +15,11 @@ class Post(models.Model):
     def __str__(self):
         return self.title
 
+    def shorttext(self):
+        if len(self.text) > 320:
+            return self.text[:320] + " ~ ~ ~"
+        else:
+            return self.text
+
 #models.Model oznacza, że nasz obiekt Post jest modelem Django.
 #W ten sposób Django wie, że powinien go przechowywać w bazie danych.
